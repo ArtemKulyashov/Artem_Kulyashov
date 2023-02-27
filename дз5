@@ -1,0 +1,201 @@
+public class hm5 {
+    public static void main(String[] args) throws Exception {
+        Volsebnic volsebnic = new Volsebnic();
+        Luchnic luchnic = new Luchnic();
+        Oruzie oruzie = new Oruzie();
+        Error error = new Error();
+
+        Volsebnic.lvlup();
+        Volsebnic.Hi();
+
+        Oruzie.lvlup();
+        Oruzie.lvlup();
+        Oruzie.lvlup();
+        Oruzie.lvlup();
+        Oruzie.Hi();
+
+        Luchnic.lvlup();
+        Luchnic.Hi();
+
+
+    }
+}
+
+
+
+
+
+
+public class Player {
+    String name;
+    static int hp;
+    static int lvl;
+    static int damage;
+
+    public Player(String impname, int imphp, int implvl, int impdamage){
+        this.name= impname;
+        this.hp=imphp;
+        this.lvl =implvl;
+        this.damage = impdamage;
+        System.out.println(impname + " " + imphp + " " + implvl + " " + impdamage);
+
+    
+    }
+
+    static int lvlup (){
+        lvl++;
+        hp++;
+        damage++;
+
+        System.out.println("У вас новый уровень!-" + lvl + hp);
+        return  lvl;
+    }
+    void Hi(String speech){
+        System.out.println(speech);
+    }
+
+
+
+
+
+
+}
+
+
+
+
+
+public class Oruzie extends Player{
+
+    static int power;
+
+    static int lvlup (){
+        power++;
+
+            damage++;
+            damage++;
+            damage++;
+            damage++;
+
+            power++;
+            power++;
+            power++;
+            power++;
+
+            System.out.println("Ende, ваш урон вырос ! Теперь он:"+damage);
+
+        hp++;
+        lvl++;
+        damage++;
+        System.out.println("Уровень вырос "+lvl +" Ende ваши характеристики взрасли! Сила: " + power+" Здоровье:"+hp +" Урон:"+damage);
+
+        return power;
+
+    }
+
+    Oruzie(){
+        super("Ende",100,0, 15);
+        power = 0;
+
+
+    }
+    static void Hi(){
+        System.out.println("Обращайтесь, любое оружие в наличие");
+    }
+}
+
+
+
+
+
+public class Luchnic extends Player {
+    static int metcost;
+
+    Luchnic(){
+        super("Diluc",100,0, 15);
+        this.metcost = 1;
+    }
+
+    static int lvlup (){
+        metcost++;
+
+
+            damage++;
+            damage++;
+            damage++;
+            damage++;
+
+            metcost++;
+            metcost++;
+            metcost++;
+            metcost++;
+
+            System.out.println("Diluc ваш урон вырос ! Теперь он:"+damage);
+
+        hp++;
+        lvl++;
+        damage++;
+        System.out.println("Уровень вырос "+lvl +" Diluc ваши характеристики взрасли! Сила: " + metcost+" Здоровье:"+hp +" Урон:"+damage);
+
+        return metcost;
+    }
+
+    static void Hi(){
+
+        System.out.println("Лучше меня не сыскать лучника" );
+    }
+}
+
+
+
+
+public class Volsebnic extends Player{
+    static int mana;
+
+    Volsebnic(){
+        super("Lisa",100,0, 45);
+        this.mana = 0;
+    }
+
+    static int lvlup (){
+        mana++;
+
+            damage++;
+            damage++;
+            damage++;
+            damage++;
+
+            mana++;
+            mana++;
+            mana++;
+            mana++;
+
+            System.out.println("Lisa ваш урон вырос ! Теперь он:"+damage);
+
+        hp++;
+        lvl++;
+        damage++;
+        System.out.println("Уровень вырос "+lvl +" Lisa ваши характеристики взрасли! Сила: " + mana+" Здоровье:"+hp +" Урон:"+damage);
+
+        return mana;
+    }
+
+    static void Hi(){
+        System.out.println("Один щелчек моих пальцев и ваш дом объят пламенем" );
+    }
+}
+
+
+
+
+public class Error extends Player {
+    public Error() throws Exception {
+        super("Test",100, 1, 50);
+        if (name == "Test"==false){
+            throw new Exception("Exception: failed");
+        }
+    }
+}
+
+
+
